@@ -1,0 +1,51 @@
+# HighResTimestampInput
+
+Godot 인풋렉이 아쉬워서 만든 윈도우용 익스텐션
+
+리듬게임 전용에 가깝습니다!
+
+다른 플렛폼은 동작하지 않아요!
+
+리듬게임에서 판정용 timestamp를 많이 정확하게 뽑는 용도!
+
+기존 고도 Input 시스템을 대체하는 건 아닙니다
+
+## 지원 버전
+
+- Godot 4.6+
+
+## 기능
+
+- Raw Input 기반 key down / key up 수집
+- `TimestampInput.start()`
+- `TimestampInput.stop()`
+- `TimestampInput.poll_events()`
+- `TimestampInput.get_time_usec()`
+
+## 설치
+
+아래 파일 프로젝트에 삽입
+
+- `high_res_timestamp_input.gdextension`
+- `bin/high_res_timestamp_input.windows.template_debug.x86_64.dll`
+- `bin/high_res_timestamp_input.windows.template_release.x86_64.dll`
+
+## 사용 예시
+
+```python
+extends Node
+
+var start_usec := 0
+
+func _ready() -> void:
+    TimestampInput.start()
+
+    # 대충 노래재생 하고 싱크맞추는 로직
+    start_usec = TimestampInput.get_time_usec() # event.timestamp_usec 에서 빼면 됨
+    # 윗줄의 코드가 실행될때 노래재생구간이 최대한 0에 가까워야하고 필요할시 start_usec에 오디오 관련 보정값을 더해줘야함
+    
+
+func _process(_delta: float) -> void:
+    for event in TimestampInput.poll_events():
+        print(event.keycode, event.pressed, start_usec - event.timestamp_usec)
+```
