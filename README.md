@@ -40,7 +40,7 @@ var start_usec := 0
 func _ready() -> void:
     TimestampInput.start()
 
-    # 대충 노래재생 하고 싱크맞추는 로직
+    # (대충 노래재생 하고 싱크맞추는 로직 들어가는 자리)
     start_usec = TimestampInput.get_time_usec()
     # 키가 노래의 어느시점에서 눌렸는지 위해서 시작시간 저장 RawInputEvent.timestamp_usec 에서 빼면 됨
     # 윗줄의 코드가 실행될때 노래재생구간이 최대한 0에 가까워야하고 필요할시 start_usec에 오디오 관련 보정값을 더해줘야함
