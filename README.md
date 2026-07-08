@@ -48,4 +48,5 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     for event : RawInputEvent in TimestampInput.poll_events():
         print(event.keycode, event.pressed, start_usec - event.timestamp_usec)
+    #pressed 말고 is_down이 더 적절했을지도 쩝
 ```
