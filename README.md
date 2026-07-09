@@ -30,7 +30,7 @@ Godot 인풋렉이 아쉬워서 만든 윈도우용 익스텐션
 
 ## 사용 예시
 
-```python
+```gdscript
 extends Node
 
 var start_usec := 0
