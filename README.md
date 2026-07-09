@@ -1,3 +1,5 @@
+[english](README.EN.md)
+
 # HighResTimestampInput
 
 Godot 인풋렉이 아쉬워서 만든 윈도우용 익스텐션
