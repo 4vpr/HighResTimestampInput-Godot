@@ -6,6 +6,8 @@ This is mostly intended for rhythm games. Its main purpose is to provide highly 
 
 It is **not** intended to replace Godot’s built-in Input system.
 
+Using Window's LawInput
+
 ## Supported Version
 
 Godot 4.6+
